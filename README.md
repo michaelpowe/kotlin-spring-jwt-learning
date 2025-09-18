@@ -18,6 +18,8 @@ A modular Spring Boot application demonstrating JWT authentication.
 
 ## Todos
 
+- [ ] Implement user feature
+- [ ] Implement auth feature
 - [ ] Implement JWT authentication
 
 ## Build
