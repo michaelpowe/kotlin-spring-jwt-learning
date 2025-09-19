@@ -4,10 +4,6 @@ plugins {
     kotlin("plugin.jpa")
     }
 
-group = "xyz.powe"
-version = "0.0.1-SNAPSHOT"
-description = "kotlin-spring-jwt-learning"
-
 repositories {
     mavenCentral()
     maven { url = uri("https://repo.spring.io/snapshot") }
