@@ -2,7 +2,7 @@ plugins {
     id("java-library")
     id("kotlin-spring-jwt-learning.spring-boot-service")
     kotlin("plugin.jpa")
-    }
+}
 
 repositories {
     mavenCentral()

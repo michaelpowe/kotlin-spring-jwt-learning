@@ -1,6 +1,6 @@
 plugins {
     id("java-library")
-    id("kotlin-spring-jwt-learning.kotlin-common")
+    id("kotlin-spring-jwt-learning.spring-boot-service")
 }
 
 group = "xyz.powe"
@@ -12,6 +12,9 @@ repositories {
 }
 
 dependencies {
+    implementation(libs.spring.boot.starter)
+    implementation(libs.spring.boot.starter.web)
+    implementation(libs.spring.boot.starter.security)
     testImplementation(kotlin("test"))
 }
 

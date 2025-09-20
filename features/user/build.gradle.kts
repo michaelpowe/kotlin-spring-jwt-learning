@@ -11,6 +11,9 @@ repositories {
 
 dependencies {
     implementation(projects.shared)
+    implementation(libs.spring.boot.starter.data.jpa)
+    implementation(libs.spring.boot.starter.validation)
+    implementation(libs.spring.boot.starter.crypto)
     testImplementation(kotlin("test"))
 }
 
