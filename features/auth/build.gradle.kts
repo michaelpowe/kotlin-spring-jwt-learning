@@ -10,7 +10,14 @@ repositories {
 }
 
 dependencies {
+    implementation(libs.jwt.api)
+    implementation(libs.jwt.impl)
+    implementation(libs.jwt.jackson)
+    implementation(projects.features.user)
     implementation(projects.shared)
+    implementation(libs.spring.boot.starter.security)
+    implementation(libs.spring.boot.starter.validation)
+    implementation(libs.spring.boot.starter.data.jpa)
     testImplementation(kotlin("test"))
 }
 

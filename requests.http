@@ -1,0 +1,80 @@
+### Step 1: Login as admin and retrieve jwt & refresh token
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin123Admin!@#"
+}
+
+> {%
+    client.global.set("auth_token", response.body.token);
+    client.global.set("refresh_token", response.body.refreshToken);
+%}
+
+### Step 2: Get current user details (admin)
+GET http://localhost:8080/api/auth/me
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+### Step 3: Test admin user creation route
+POST http://localhost:8080/api/auth/register-admin
+Content-Type: application/json
+Authorization: Bearer {{auth_token}}
+
+{
+  "email": "admin2@admin.com",
+  "username": "admin2",
+  "password": "admin2!@#Admin"
+}
+
+### Step 4: Test admin refresh token
+POST http://localhost:8080/api/auth/refresh
+Content-Type: application/json
+
+  {
+    "refreshToken": "{{refresh_token}}"
+  }
+
+
+### Step 5: Test user login
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@test.com",
+  "password": "testpass0rd!@#"
+}
+
+> {%
+    client.global.set("auth_token_user", response.body.token);
+    client.global.set("refresh_token_user", response.body.refreshToken);
+%}
+
+
+### Step 6: Get current user details (user)
+GET http://localhost:8080/api/auth/me
+Content-Type: application/json
+Authorization: Bearer {{auth_token_user}}
+
+
+### Step 7: Can user role create admin user?
+POST http://localhost:8080/api/auth/register-admin
+Content-Type: application/json
+Authorization: Bearer {{auth_token_user}}
+
+{
+  "email": "admin3@admin.com",
+  "username": "admin3",
+  "password": "admin2!@#Admin"
+}
+
+### Step 8: Test user refresh token
+POST http://localhost:8080/api/auth/refresh
+Content-Type: application/json
+
+  {
+    "refreshToken": "{{refresh_token_user}}"
+  }
+
+

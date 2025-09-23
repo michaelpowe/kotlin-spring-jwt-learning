@@ -13,7 +13,7 @@ dependencies {
     implementation(projects.shared)
     implementation(libs.spring.boot.starter.data.jpa)
     implementation(libs.spring.boot.starter.validation)
-    implementation(libs.spring.boot.starter.crypto)
+    implementation(libs.spring.boot.starter.security)
     testImplementation(kotlin("test"))
 }
 
